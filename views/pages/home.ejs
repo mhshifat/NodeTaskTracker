@@ -1,0 +1,116 @@
+<!-- Button trigger modal -->
+<button style="position: absolute;bottom: 100px;right: 50px;" type="button" class="btn btn-success rounded-circle btn-lg" data-toggle="modal" data-target="#exampleModalLong">
+  <i class="fas fa-plus"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Enter Your Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/task/create" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" name="task" class="form-control" placeholder="Enter Here...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- nodetasktracker -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3684353704986501"
+            data-ad-slot="5847824953"
+            data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div class="col-md-6">
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="text-info text-center pb-3">Incompleted Tasks</h5>
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th>Tasks</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <% tasks.forEach((task) => { %>
+              <% if(task.isCompleted === false) { %>
+                <tr>
+                  <td><%= task.task %></td>
+                  <td>
+                    <a href="/task/<%= task._id %>/markAsComplete">
+                      <i class="fas fa-check text-success"></i>
+                    </a>
+                  </td>
+                </tr>
+              <% } %>
+            <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-info text-center pb-3">Completed Tasks</h5>
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th>Tasks</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% tasks.forEach((task) => { %>
+                <% if(task.isCompleted) { %>
+                  <tr>
+                    <td><%= task.task %></td>
+                    <td>
+                      <a href="/task/<%= task._id %>/delete">
+                        <i class="fas fa-trash text-danger"></i>
+                      </a>
+                    </td>
+                  </tr>
+                <% } %>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-md-3">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- nodetasktracker -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3684353704986501"
+            data-ad-slot="5847824953"
+            data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+</div>
